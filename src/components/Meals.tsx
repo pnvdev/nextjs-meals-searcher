@@ -39,7 +39,7 @@ export async function Meals({ searchParams }: MealsProps) {
               />
             </div>
             <div className="p-4 text-center">
-              <h2 className="text-lg font-semibold text-gray-800 h-20 w-96">
+              <h2 className="text-lg font-semibold text-gray-800 h-20 w-60">
                 {item.strMeal}
               </h2>
             </div>

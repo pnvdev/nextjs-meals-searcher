@@ -8,7 +8,7 @@ interface Category {
   strCategoryDescription: string;
 }
 
-export default async function Home() {
+export default async function Page() {
   const mealsCategories = await fetch(
     "https://www.themealdb.com/api/json/v1/1/categories.php"
   );
@@ -34,7 +34,7 @@ export default async function Home() {
               />
             </div>
             <div className="p-4 text-center">
-              <h2 className="text-lg font-semibold text-gray-800 h-20 w-96">
+              <h2 className="text-lg font-semibold text-gray-800 h-20 w-60">
                 {item.strCategory}
               </h2>
             </div>

@@ -29,7 +29,7 @@ export default async function Page({ params }: PageProps) {
             key={item.idMeal}
             className="block bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105"
           >
-            <div className="relative h-48 w-96">
+            <div className="relative h-48 w-full">
               <Image
                 src={item.strMealThumb}
                 layout="fill"
@@ -38,7 +38,7 @@ export default async function Page({ params }: PageProps) {
               />
             </div>
             <div className="p-4 text-center">
-              <h2 className="text-lg font-semibold text-gray-800 h-20">
+              <h2 className="text-lg font-semibold text-gray-800 h-20 w-60">
                 {item.strMeal}
               </h2>
             </div>
