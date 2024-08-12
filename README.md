@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js Meals Searcher
+
+This project is a web application built with Next.js and TypeScript, allowing users to search for meals and retrieve detailed information about them. The application is styled using Tailwind CSS and is designed with a focus on performance and user experience.
+
+## Features
+
+- **Meal Search**: Quickly search for meals using keywords.
+- **Meal Details**: View detailed information about each meal, including ingredients, instructions, and more.
+- **Search with URL Parameters**: Implement search functionality using URL search parameters instead of `useState`, allowing direct linking to specific searches.
+- **Responsive Design**: Fully responsive design optimized for different devices.
+
+## Technologies Used
+
+- **Next.js**: React framework for server-side rendering and static site generation.
+- **TypeScript**: Typed JavaScript for better development experience.
+- **Tailwind CSS**: Utility-first CSS framework for styling.
+- **API Integration**: Fetches meal data from an external API.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js and npm/yarn/pnpm/bun installed on your machine.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   ```bash
+   git clone https://github.com/pnvdev/nextjs-meals-searcher.git
+   cd nextjs-meals-searcher
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   # or
+   bun install
+   ```
+
+3. Running the Development Server:
+
+   ```bash
+   npm run dev
+    # or
+    yarn dev
+    # or
+    pnpm dev
+    # or
+    bun dev
+   ```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js Documentation](https://nextjs.org/docs) - Learn more about Next.js features and API.
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs) - Learn how to style your application with Tailwind CSS.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com).
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/pnvdev/nextjs-meals-searcher/issues).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License
+
+This project is open-source and available under the [MIT License](LICENSE).
