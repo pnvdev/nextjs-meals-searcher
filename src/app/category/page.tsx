@@ -1,11 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 
+interface Category {
+  idCategory: string;
+  strCategory: string;
+  strCategoryThumb: string;
+  strCategoryDescription: string;
+}
+
 export default async function Home() {
   const mealsCategories = await fetch(
     "https://www.themealdb.com/api/json/v1/1/categories.php"
   );
-  const { categories } = await mealsCategories.json();
+  const { categories }: { categories: Category[] } =
+    await mealsCategories.json();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-start p-6 md:p-12 bg-gray-100">
@@ -22,7 +30,7 @@ export default async function Home() {
                 src={item.strCategoryThumb}
                 layout="fill"
                 objectFit="cover"
-                alt={item.strMeal}
+                alt={item.strCategory}
               />
             </div>
             <div className="p-4 text-center">

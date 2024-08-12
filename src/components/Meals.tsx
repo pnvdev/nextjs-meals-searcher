@@ -1,5 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
+
+interface Meal {
+  idMeal: string;
+  strMeal: string;
+  strMealThumb: string;
+}
+
 interface MealsProps {
   searchParams: {
     query?: string;
@@ -12,8 +19,7 @@ export async function Meals({ searchParams }: MealsProps) {
   const mealsCategories = await fetch(
     `http://www.themealdb.com/api/json/v1/1/search.php?s=${search}`
   );
-  const { meals } = await mealsCategories.json();
-  console.log(meals);
+  const { meals }: { meals: Meal[] } = await mealsCategories.json();
 
   if (meals && meals.length > 0) {
     return (

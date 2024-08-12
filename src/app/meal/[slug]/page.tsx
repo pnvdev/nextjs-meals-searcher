@@ -2,11 +2,27 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function Page({ params }: { params: { slug: string } }) {
+interface Meal {
+  idMeal: string;
+  strMeal: string;
+  strMealThumb: string;
+  strInstructions: string;
+  strCategory: string;
+  strArea: string;
+  strYoutube?: string;
+  strSource?: string;
+  [key: string]: any;
+}
+
+interface PageProps {
+  params: { slug: string };
+}
+
+export default async function Page({ params }: PageProps) {
   const response = await fetch(
     `http://www.themealdb.com/api/json/v1/1/lookup.php?i=${params.slug}`
   );
-  const { meals } = await response.json();
+  const { meals }: { meals: Meal[] } = await response.json();
 
   if (!meals) return <p>Meal not found</p>;
 
@@ -14,15 +30,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   const ingredients = Object.entries(meal)
     .filter(([key, value]) => key.includes("strIngredient") && value)
-    .map(([_, value]) => value);
+    .map(([_, value]) => value as string);
 
   const measures = Object.entries(meal)
     .filter(([key, value]) => key.includes("strMeasure") && value)
-    .map(([_, value]) => value);
+    .map(([_, value]) => value as string);
 
-  const { searchParams } = meal.strYoutube ? new URL(meal.strYoutube) : "";
-  const ytVideoId = searchParams ? searchParams.get("v") : "";
-  console.log(ytVideoId);
+  let ytVideoId = "";
+  if (meal.strYoutube) {
+    const ytUrl = new URL(meal.strYoutube);
+    ytVideoId = ytUrl.searchParams.get("v") || "";
+  }
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-start p-6 md:p-12 bg-gray-100">
@@ -91,7 +109,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
           {meal.strSource ? (
             <Section title="Source">
               <div className="flex items-center text-gray-700">
-                {/* <span className="font-medium mr-2">{"Source"}:</span> */}
                 <Link href={meal.strSource} target="_blank">
                   {meal.strSource}
                 </Link>
