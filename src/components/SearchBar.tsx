@@ -11,12 +11,13 @@ function SearchBar() {
   }
   type UpdatedQuery = Record<string, string>;
 
-  const [searchQuery, setSearchQuery] = useState<Query>({
-    query: "",
-  });
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
+
+  const [searchQuery, setSearchQuery] = useState<Query>({
+    query: new URLSearchParams(searchParams).get("query") || "",
+  });
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
