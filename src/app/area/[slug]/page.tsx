@@ -1,11 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function Page({ params }: { params: { slug: string } }) {
+interface Meal {
+  idMeal: string;
+  strMeal: string;
+  strMealThumb: string;
+}
+
+interface PageProps {
+  params: { slug: string };
+}
+
+export default async function Page({ params }: PageProps) {
   const mealsCategory = await fetch(
     `http://www.themealdb.com/api/json/v1/1/filter.php?a=${params.slug}`
   );
-  const { meals } = await mealsCategory.json();
+  const { meals }: { meals: Meal[] } = await mealsCategory.json();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-start p-6 md:p-12 bg-gray-100">
