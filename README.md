@@ -1,6 +1,6 @@
 # Next.js Meals Searcher
 
-This project is a web application built with Next.js and TypeScript, allowing users to search for meals and retrieve detailed information about them. The application is styled using Tailwind CSS and is designed with a focus on performance and user experience.
+Next.js Meals Searcher is a dynamic web application built with Next.js that allows users to search for and explore a variety of meal recipes. Leveraging the power of Next.js for server-side rendering and static site generation, this app delivers a fast and responsive user experience.
 
 ## Features
 
